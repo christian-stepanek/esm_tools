@@ -6,7 +6,7 @@ hotfix_echam_conc_rad:
         action: DELAY(10)
 
 some_other:
-        package: "esm_motd"
+        package: "esm_master"
         versions: ">0"
         message: |
                 Test bug
