@@ -1,0 +1,13 @@
+hotfix_echam_conc_rad:
+        package: "esm_tools"
+        versions: "<4.2.2"
+        message: |
+                Echam with concurrent radiation wouldn't compile on Mistral with the released mistral.yaml.
+        action: DELAY(10)
+
+some_other:
+        package: "esm_motd"
+        versions: ">0"
+        message: |
+                Test bug
+        action: ERROR
