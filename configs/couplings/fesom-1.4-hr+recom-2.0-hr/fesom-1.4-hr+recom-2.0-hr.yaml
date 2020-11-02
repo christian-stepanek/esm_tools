@@ -1,0 +1,7 @@
+components:
+  - recom-2.0-hr
+  - fesom-1.4-recom_hr
+coupling_changes:
+  - sed -i '/FESOM_COUPLED/s/ON/OFF/g' fesom-1.4/CMakeLists.txt
+  - sed -i '/FESOM_RECOM/s/OFF/ON/g' fesom-1.4/CMakeLists.txt
+  - sed -i '/RECOM_LIBRARY/s/OFF/ON/g' fesom-1.4/CMakeLists.txt

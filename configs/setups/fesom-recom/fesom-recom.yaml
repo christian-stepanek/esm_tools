@@ -17,11 +17,15 @@ general:
 
         available_versions:
         - '1.4'
+        - '1.4-hr'
         - '2.0'
         choose_version:
           '1.4':
             couplings:
             - fesom-1.4+recom-2.0
+          '1.4-hr':
+            couplings:
+            - fesom-1.4-hr+recom-2.0-hr
 
 
 #########################################################################################
