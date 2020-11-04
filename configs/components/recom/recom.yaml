@@ -44,6 +44,7 @@ bin_dir: "${setup_dir}/bin"
 data_path: ""
 
 scenario: "preindustrial"
+hr_tracers: false
 
 time_step: 1800
 
@@ -114,23 +115,36 @@ config_sources:
         recom:  "${namelist_dir}/namelist.recom"
 
 
+# Add files for high resolution tracers
+tracer_list: [recom1,recom2,recom3,recom4]
+choose_hr_tracers:
+        true:
+                add_restart_in_files:
+                        "[[tracer_list-->TRACER]]": TRACER
+                add_restart_out_files:
+                        "[[tracer_list-->TRACER]]": TRACER
+
 restart_in_files:
         bio_restart: bio_restart
 
 restart_in_in_work:
         bio_restart: fesom.${parent_date!syear}.bio.nc
+        "[[tracer_list-->TRACER]]": fesom.${parent_date!syear}.TRACER.nc
 
 restart_in_sources:
         bio_restart: fesom.${parent_date!syear!smonth!sday}.bio.nc
+        "[[tracer_list-->TRACER]]": fesom.${parent_date!syear!smonth!sday}.TRACER.nc
 
 restart_out_files:
         bio_restart: bio_restart
 
 restart_out_in_work:
         bio_restart: fesom.${end_date!syear}.bio.nc
+        "[[tracer_list-->TRACER]]": fesom.${end_date!syear}.TRACER.nc
 
 restart_out_sources:
         bio_restart: fesom.${end_date!syear!smonth!sday}.bio.nc
+        "[[tracer_list-->TRACER]]": fesom.${end_date!syear!smonth!sday}.TRACER.nc
 
 
 yearly_outputs: []
